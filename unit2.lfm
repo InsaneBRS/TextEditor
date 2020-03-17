@@ -1,0 +1,22 @@
+object Form2: TForm2
+  Left = 348
+  Height = 240
+  Top = 416
+  Width = 320
+  Caption = 'About Programm'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '2.0.6.0'
+  object Memo2: TMemo
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    Align = alClient
+    Lines.Strings = (
+      'Hello!!!'
+    )
+    OnChange = Memo2Change
+    TabOrder = 0
+  end
+end
