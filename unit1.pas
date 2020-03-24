@@ -6,7 +6,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Menus,
-  LCLIntf, ComCtrls, PopupNotifier, EditBtn, DateTimePicker, SynEdit;
+  LCLIntf, ComCtrls, PopupNotifier, EditBtn, DateTimePicker, SynEdit,
+  SynHighlighterCpp, SynHighlighterHTML, SynHighlighterPas, LCLTranslator,
+  ExtCtrls;
 
 type
 
@@ -29,6 +31,12 @@ type
     FindPr: TMenuItem;
     MenuItem4: TMenuItem;
     Day: TMenuItem;
+    Language: TMenuItem;
+    SynCppSyn1: TSynCppSyn;
+    SyntCplus: TRadioButton;
+    RadioGroup1: TRadioGroup;
+    Russian: TMenuItem;
+    English: TMenuItem;
     Night: TMenuItem;
     Standart: TMenuItem;
     Reference: TMenuItem;
@@ -45,22 +53,29 @@ type
     SaveDialog1: TSaveDialog;
     StatusBar1: TStatusBar;
     SynEdit: TSynEdit;
+    SynHTMLSyn1: TSynHTMLSyn;
+    SynPasSyn1: TSynPasSyn;
+    SyntHtml:TRadioButton;
+    SyntPascal:TRadioButton;
     procedure CatPrClick(Sender: TObject);
     procedure ClosePrClick(Sender: TObject);
     procedure CopyPrClick(Sender: TObject);
     procedure DayClick(Sender: TObject);
     procedure DesignClick(Sender: TObject);
+    procedure EnglishClick(Sender: TObject);
 
     procedure FindPrClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure InsertPrClick(Sender: TObject);
 
     procedure FontPrClick(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure NightClick(Sender: TObject);
     procedure PopupNotifier1Close(Sender: TObject; var CloseAction: TCloseAction);
     procedure ReferenceClick(Sender: TObject);
     procedure ReplacePrClick(Sender: TObject);
+    procedure RussianClick(Sender: TObject);
     procedure SaveAsClick(Sender: TObject);
     procedure NewPrClick(Sender: TObject);
     procedure OpenPrClick(Sender: TObject);
@@ -70,6 +85,9 @@ type
     procedure StandartClick(Sender: TObject);
     procedure SynEditChange(Sender: TObject);
     procedure SynEditClick(Sender: TObject);
+    procedure SyntCplusClick(Sender: TObject);
+    procedure SyntHtmlClick(Sender: TObject);
+    procedure SyntPascalClick(Sender: TObject);
     procedure TimeEdit1Change(Sender: TObject);
     procedure ToolBar1Click(Sender: TObject);
   private
@@ -125,6 +143,33 @@ begin
 
 end;
 
+procedure TForm1.SyntCplusClick(Sender: TObject);
+begin
+        if  SyntCplus.Checked=true then begin
+             Form1.SynEdit.Highlighter:=SynCppSyn1;
+             Form1.SynEdit.Gutter.Visible:=true;
+        end;
+end;
+
+procedure TForm1.SyntHtmlClick(Sender: TObject);
+begin
+         if SyntHtml.Checked=true then begin
+             Form1.SynEdit.Highlighter:=SynHTMLSyn1;
+             Form1.SynEdit.Gutter.Visible:=true;
+        end;
+end;
+
+
+
+procedure TForm1.SyntPascalClick(Sender: TObject);
+begin
+        if  SyntPascal.Checked=true then begin
+             Form1.SynEdit.Highlighter:=SynPasSyn1;
+             Form1.SynEdit.Gutter.Visible:=true;
+        end;
+end;
+
+
 procedure TForm1.TimeEdit1Change(Sender: TObject);
 begin
      //ShowMessage(DateTimeToStr(Now));
@@ -167,6 +212,12 @@ begin
   if FontDialog1.Execute then SynEdit.Font:= FontDialog1.Font;
 end;
 
+procedure TForm1.Label1Click(Sender: TObject);
+begin
+
+end;
+
+
 procedure TForm1.MenuItem6Click(Sender: TObject);
 begin
   Unit2.Form2.Show;
@@ -184,6 +235,11 @@ begin
 
 end;
 
+
+
+
+
+
 procedure TForm1.ReferenceClick(Sender: TObject);
 begin
   OpenURL('www.lazarus.freepascal.org/');
@@ -193,6 +249,12 @@ procedure TForm1.ReplacePrClick(Sender: TObject);
 begin
   ReplaceDialog1.ReplaceText:= SynEdit.Text;
   if ReplaceDialog1.Execute then SynEdit.Text:= ReplaceDialog1.ReplaceText;
+end;
+
+procedure TForm1.RussianClick(Sender: TObject);
+begin
+  SetDefaultLang('rus');
+  GetLocaleFormatSettings($419, DefaultFormatSettings);
 end;
 
 procedure TForm1.SaveAsClick(Sender: TObject);
@@ -228,6 +290,13 @@ begin
   //ColorDialog1.Color:= SynEdit.Color;
   //если диалог прошел успешно, меняем цвет у Memo:
   //if ColorDialog1.Execute then SynEdit.Color:= ColorDialog1.Color;
+end;
+
+procedure TForm1.EnglishClick(Sender: TObject);
+begin
+  SetDefaultLang('en');
+  //for time changing
+  GetLocaleFormatSettings($409, DefaultFormatSettings);
 end;
 
 
