@@ -58,8 +58,7 @@ type
     procedure FontPrClick(Sender: TObject);
     procedure MenuItem6Click(Sender: TObject);
     procedure NightClick(Sender: TObject);
-    procedure PopupNotifier1Close(Sender: TObject; var CloseAction: TCloseAction
-      );
+    procedure PopupNotifier1Close(Sender: TObject; var CloseAction: TCloseAction);
     procedure ReferenceClick(Sender: TObject);
     procedure ReplacePrClick(Sender: TObject);
     procedure SaveAsClick(Sender: TObject);
