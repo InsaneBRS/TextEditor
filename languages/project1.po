@@ -1,0 +1,136 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tform1.caption
+msgid "Notepad+++"
+msgstr ""
+
+#: tform1.catpr.caption
+msgid "Вырезать"
+msgstr ""
+
+#: tform1.closepr.caption
+msgid "Закрыть"
+msgstr ""
+
+#: tform1.copypr.caption
+msgid "Копировать"
+msgstr ""
+
+#: tform1.day.caption
+msgid "Дневная"
+msgstr ""
+
+#: tform1.design.caption
+msgid "Тема оформления"
+msgstr ""
+
+#: tform1.edit.caption
+msgid "Правка"
+msgstr ""
+
+#: tform1.english.caption
+msgctxt "tform1.english.caption"
+msgid "Английский"
+msgstr ""
+
+#: tform1.findpr.caption
+msgid "Найти"
+msgstr ""
+
+#: tform1.fontpr.caption
+msgid "Шрифт"
+msgstr ""
+
+#: tform1.insertpr.caption
+msgid "Вставить"
+msgstr ""
+
+#: tform1.language.caption
+msgctxt "tform1.language.caption"
+msgid "Язык"
+msgstr ""
+
+#: tform1.menuitem1.caption
+msgid "Файл"
+msgstr ""
+
+#: tform1.menuitem2.caption
+msgid "Вид"
+msgstr ""
+
+#: tform1.menuitem3.caption
+msgid "Поиск"
+msgstr ""
+
+#: tform1.menuitem4.caption
+msgctxt "tform1.menuitem4.caption"
+msgid "Справка"
+msgstr ""
+
+#: tform1.menuitem6.caption
+msgid "О программе"
+msgstr ""
+
+#: tform1.newpr.caption
+msgid "Новый"
+msgstr ""
+
+#: tform1.night.caption
+msgid "Ночная"
+msgstr ""
+
+#: tform1.openpr.caption
+msgid "Открыть"
+msgstr ""
+
+#: tform1.radiogroup1.caption
+msgid "Подсветка синтаксиса:"
+msgstr ""
+
+#: tform1.reference.caption
+msgctxt "tform1.reference.caption"
+msgid "Справка"
+msgstr ""
+
+#: tform1.replacepr.caption
+msgid "Заменить"
+msgstr ""
+
+#: tform1.russian.caption
+msgctxt "tform1.russian.caption"
+msgid "Русский"
+msgstr ""
+
+#: tform1.saveas.caption
+msgid "Сохранить как"
+msgstr ""
+
+#: tform1.savepr.caption
+msgid "Сохранить"
+msgstr ""
+
+#: tform1.selectall.caption
+msgid "Выделить все"
+msgstr ""
+
+#: tform1.standart.caption
+msgid "Стандартная"
+msgstr ""
+
+#: tform1.syntcplus.caption
+msgid "C++"
+msgstr ""
+
+#: tform1.synthtml.caption
+msgid "HTML"
+msgstr ""
+
+#: tform1.syntpascal.caption
+msgid "Pascal"
+msgstr ""
+
+#: tform2.caption
+msgid "About Programm"
+msgstr ""
+
