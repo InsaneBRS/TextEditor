@@ -12,8 +12,10 @@ type
   { TForm2 }
 
   TForm2 = class(TForm)
-    Memo2: TMemo;
-    procedure Memo2Change(Sender: TObject);
+    Memo1: TMemo;
+    procedure FormActivate(Sender: TObject);
+    procedure Memo1Change(Sender: TObject);
+
   private
 
   public
@@ -29,7 +31,14 @@ implementation
 
 { TForm2 }
 
-procedure TForm2.Memo2Change(Sender: TObject);
+
+procedure TForm2.FormActivate(Sender: TObject);
+begin
+
+
+end;
+
+procedure TForm2.Memo1Change(Sender: TObject);
 begin
 
 end;

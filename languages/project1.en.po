@@ -18,7 +18,10 @@ msgid "Копировать"
 msgstr "Copy"
 
 #: tform1.day.caption
-msgid "Дневная"
+#, fuzzy
+#| msgid "Дневная"
+msgctxt "tform1.day.caption"
+msgid "Стандартная"
 msgstr "Daytime"
 
 #: tform1.design.caption
@@ -33,6 +36,10 @@ msgstr "Edit"
 msgctxt "tform1.english.caption"
 msgid "Английский"
 msgstr "English"
+
+#: tform1.exitpr.caption
+msgid "Выход"
+msgstr "Exit"
 
 #: tform1.findpr.caption
 msgid "Найти"
@@ -86,7 +93,7 @@ msgstr "Open"
 
 #: tform1.radiogroup1.caption
 msgid "Подсветка синтаксиса:"
-msgstr ""
+msgstr "Highlighting syntax"
 
 #: tform1.reference.caption
 msgctxt "tform1.reference.caption"
@@ -115,7 +122,10 @@ msgid "Выделить все"
 msgstr "Select all"
 
 #: tform1.standart.caption
-msgid "Стандартная"
+#, fuzzy
+#| msgid "Стандартная"
+msgctxt "tform1.standart.caption"
+msgid "Серенькая"
 msgstr "Standart"
 
 #: tform1.syntcplus.caption
@@ -133,4 +143,8 @@ msgstr ""
 #: tform2.caption
 msgid "About Programm"
 msgstr "About Programm"
+
+#: tform3.caption
+msgid "Form3"
+msgstr ""
 

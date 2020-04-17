@@ -32,6 +32,7 @@ type
     MenuItem4: TMenuItem;
     Day: TMenuItem;
     Language: TMenuItem;
+    ExitPr: TMenuItem;
     SynCppSyn1: TSynCppSyn;
     SyntCplus: TRadioButton;
     RadioGroup1: TRadioGroup;
@@ -63,6 +64,8 @@ type
     procedure DayClick(Sender: TObject);
     procedure DesignClick(Sender: TObject);
     procedure EnglishClick(Sender: TObject);
+    procedure ExitPrClick(Sender: TObject);
+    procedure FindDialog1Find(Sender: TObject);
 
     procedure FindPrClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -74,6 +77,7 @@ type
     procedure NightClick(Sender: TObject);
     procedure PopupNotifier1Close(Sender: TObject; var CloseAction: TCloseAction);
     procedure ReferenceClick(Sender: TObject);
+    procedure ReplaceDialog1Replace(Sender: TObject);
     procedure ReplacePrClick(Sender: TObject);
     procedure RussianClick(Sender: TObject);
     procedure SaveAsClick(Sender: TObject);
@@ -98,10 +102,11 @@ type
 
 var
   Form1: TForm1;
+  isSaved:Boolean;
 
 
 implementation
- uses Unit2;
+ uses Unit2,Unit3;
 {$R *.lfm}
 
 { TForm1 }
@@ -115,6 +120,7 @@ begin
     begin
       SynEdit.Lines.SaveToFile(SaveDialog1.FileName);
     end;
+    isSaved:=false;
 end;
 
 procedure TForm1.ScrollBar1Change(Sender: TObject);
@@ -186,6 +192,7 @@ begin
     OpenDialog1.Execute;
     SaveDialog1.FileName:=OpenDialog1.FileName;
     SynEdit.Lines.LoadFromFile(SaveDialog1.FileName);
+    isSaved:=False;
     //if OpenDialog1.Execute then MyFile:=OpenDialog1.FileName
 end;
 
@@ -193,6 +200,7 @@ procedure TForm1.NewPrClick(Sender: TObject);
   begin
       SynEdit.Lines.Clear;
       OpenDialog1.FileName:='';
+      isSaved:=False;
   end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -242,7 +250,21 @@ end;
 
 procedure TForm1.ReferenceClick(Sender: TObject);
 begin
-  OpenURL('www.lazarus.freepascal.org/');
+  Unit3.Form3.Show;
+end;
+
+  procedure TForm1.ReplaceDialog1Replace(Sender: TObject);
+  begin
+      while (pos(ReplaceDialog1.FindText,SynEdit.Text) <> 0) do
+       begin
+        With SynEdit do begin
+           SelStart := pos(ReplaceDialog1.FindText,SynEdit.Text);
+           SelEnd:= pos(ReplaceDialog1.FindText, SynEdit.Text)+Length(ReplaceDialog1.FindText);
+           SelText  := ReplaceDialog1.ReplaceText;
+         end;
+         // При необходимости одноразовой замены завершаем цикл
+         if not (frReplaceAll in ReplaceDialog1.Options) then Break;
+       end;
 end;
 
 procedure TForm1.ReplacePrClick(Sender: TObject);
@@ -265,12 +287,27 @@ begin
      begin
           MyFile:= SaveDialog1.FileName;
           SynEdit.Lines.SaveToFile(MyFile);
+          isSaved:=false;
      end
 end;
 
 procedure TForm1.ClosePrClick(Sender: TObject);
+var r:Integer;
 begin
-  Close;
+  if isSaved=False then
+        r:=MessageDlg('MegaNotepad','Сохранить?', mtWarning,[mbYes,mbNo],0,mbYes);
+  if r=6 then  begin
+     if SaveDialog1.FileName ='' then begin
+        if SaveDialog1.Execute then begin
+              SynEdit.Lines.SaveToFile(SaveDialog1.Filename);
+              end;
+      end
+     else begin  SynEdit.Lines.SaveToFile(SaveDialog1.FileName)end;
+  end;
+
+
+   OpenDialog1.FileName:='';
+  SynEdit.Lines.Clear;
 end;
 
 procedure TForm1.CopyPrClick(Sender: TObject);
@@ -299,12 +336,28 @@ begin
   GetLocaleFormatSettings($409, DefaultFormatSettings);
 end;
 
+procedure TForm1.ExitPrClick(Sender: TObject);
+begin
+   Application.Terminate;
+end;
+
+procedure TForm1.FindDialog1Find(Sender: TObject);
+begin
+  if pos(FindDialog1.FindText, SynEdit.Text) <> 0 then
+begin
+  SynEdit.HideSelection := False;
+  SynEdit.SelStart := pos(FindDialog1.FindText, SynEdit.Text) ;
+  SynEdit.SelEnd  := pos(FindDialog1.FindText, SynEdit.Text)+Length(FindDialog1.FindText);
+end
+ else MessageDlg ('Строка ' + FindDialog1.FindText + ' не найдена!', mtConfirmation, [mbYes], 0);
+end;
+
 
 
 procedure TForm1.FindPrClick(Sender: TObject);
 begin
- FindDialog1.FindText:= SynEdit.Text;
-  if FindDialog1.Execute then SynEdit.Text:= FindDialog1.FindText;
+  FindDialog1.Execute;
+
 end;
 
 procedure TForm1.CatPrClick(Sender: TObject);

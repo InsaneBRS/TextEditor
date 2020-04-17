@@ -18,7 +18,8 @@ msgid "Копировать"
 msgstr ""
 
 #: tform1.day.caption
-msgid "Дневная"
+msgctxt "tform1.day.caption"
+msgid "Стандартная"
 msgstr ""
 
 #: tform1.design.caption
@@ -32,6 +33,10 @@ msgstr ""
 #: tform1.english.caption
 msgctxt "tform1.english.caption"
 msgid "Английский"
+msgstr ""
+
+#: tform1.exitpr.caption
+msgid "Выход"
 msgstr ""
 
 #: tform1.findpr.caption
@@ -115,7 +120,8 @@ msgid "Выделить все"
 msgstr ""
 
 #: tform1.standart.caption
-msgid "Стандартная"
+msgctxt "tform1.standart.caption"
+msgid "Серенькая"
 msgstr ""
 
 #: tform1.syntcplus.caption
@@ -132,5 +138,9 @@ msgstr ""
 
 #: tform2.caption
 msgid "About Programm"
+msgstr ""
+
+#: tform3.caption
+msgid "Form3"
 msgstr ""
 

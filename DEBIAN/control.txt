@@ -1,0 +1,15 @@
+Package: text_editor
+
+Version: 1.0
+
+Maintainer: Kate,Daria,Lidia
+
+Architecture: all
+
+Section: misc
+
+Depends: bash (>=4.2)
+
+Description: Super Shell Script
+
+␣A super example script

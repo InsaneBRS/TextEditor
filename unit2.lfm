@@ -1,22 +1,40 @@
 object Form2: TForm2
+  AnchorSideBottom.Side = asrBottom
   Left = 424
-  Height = 240
+  Height = 126
   Top = 206
-  Width = 320
+  Width = 186
   Caption = 'About Programm'
-  ClientHeight = 240
-  ClientWidth = 320
+  ClientHeight = 126
+  ClientWidth = 186
+  OnActivate = FormActivate
   LCLVersion = '2.0.6.0'
-  object Memo2: TMemo
+  object Memo1: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
     Left = 0
-    Height = 240
+    Height = 126
     Top = 0
-    Width = 320
-    Align = alClient
+    Width = 186
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Lines.Strings = (
-      'Hello!!!'
+      'Майкрософт Windows'
+      'Версия 200000'
+      'Корпорация Лида,Даша,Катя'
+      ''
+      'Продукт не лицензирован:)'
+      ''
+      'Запускать на ваш страх и риск'
+      ''
+      ''
+      ''
     )
-    OnChange = Memo2Change
+    OnChange = Memo1Change
+    ReadOnly = True
     TabOrder = 0
   end
 end
